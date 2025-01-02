@@ -34,8 +34,17 @@ export function AboutMe() {
               </a>
               .
             </p>
-            <div className="flex items-center pt-2">
+            <div className="flex items-center pt-2 space-x-2">
               <Facebook className="size-4 opacity-70" />
+              <p className="text-xs font-semibold">Rald Helbiro</p>
+            </div>
+            <div className="flex items-center pt-2 space-x-2">
+              <Github className="size-4 opacity-70" />
+              <p className="text-xs font-semibold">potakaaa</p>
+            </div>
+            <div className="flex items-center pt-2 space-x-2">
+              <Instagram className="size-4 opacity-70" />
+              <p className="text-xs font-semibold">jr.raldyyy</p>
             </div>
           </div>
         </div>
