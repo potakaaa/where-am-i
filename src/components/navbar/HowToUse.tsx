@@ -8,7 +8,7 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 
-export function Navbar() {
+export function HowToUse() {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>

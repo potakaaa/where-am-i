@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "./components/Navbar";
+import Navbar from "./components/navbar/Navbar";
 
 const App = () => {
   return (
