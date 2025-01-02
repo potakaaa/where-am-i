@@ -18,11 +18,14 @@ export function HowToUse() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="link" className="text-xs">
+        <Button
+          variant="link"
+          className="text-xs underline-offset-4 hover:underline active:underline"
+        >
           How to Use
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-80">
+      <DropdownMenuContent className="w-72 p-4 m-2">
         <div className="flex justify-between space-x-4">
           <Avatar>
             <AvatarImage src="https://github.com/vercel.png" />

@@ -7,18 +7,24 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export function AboutMe() {
   return (
-    <HoverCard>
-      <HoverCardTrigger asChild>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
         <Button variant="link" className="text-xs">
           About Me
         </Button>
-      </HoverCardTrigger>
-      <HoverCardContent className="w-72 m-2">
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-72 m-2 p-4">
         <div className="flex justify-between space-x-4">
-          <Avatar className="size-10 shadow">
+          <Avatar className="size-12 shadow">
             <AvatarImage src="https://avatars.githubusercontent.com/u/111859181?v=4" />
             <AvatarFallback>VC</AvatarFallback>
           </Avatar>
@@ -59,7 +65,7 @@ export function AboutMe() {
             </a>
           </div>
         </div>
-      </HoverCardContent>
-    </HoverCard>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
