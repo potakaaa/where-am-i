@@ -1,6 +1,7 @@
 import { AboutMe } from "./AboutMe";
 import { HowToUse } from "./HowToUse";
 import { TechStack } from "./TechStack";
+import { ThemeToggle } from "./ThemeToggle";
 
 const Navbar = () => {
   return (
@@ -8,6 +9,7 @@ const Navbar = () => {
       <HowToUse />
       <TechStack />
       <AboutMe />
+      <ThemeToggle />
     </div>
   );
 };

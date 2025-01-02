@@ -12,17 +12,19 @@ export function AboutMe() {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Button variant="link">About Me</Button>
+        <Button variant="link" className="text-xs">
+          About Me
+        </Button>
       </HoverCardTrigger>
-      <HoverCardContent className="w-60">
+      <HoverCardContent className="w-72 m-2">
         <div className="flex justify-between space-x-4">
-          <Avatar>
+          <Avatar className="size-10 shadow">
             <AvatarImage src="https://avatars.githubusercontent.com/u/111859181?v=4" />
             <AvatarFallback>VC</AvatarFallback>
           </Avatar>
           <div className="space-y-1">
             <h4 className="text-sm font-bold">Rald Helbiro</h4>
-            <p className="text-xs">
+            <p className="text-xs tracking-tight">
               A 2nd Year Computer Science student learning{" "}
               <a
                 href="https://ui.shadcn.com/"
@@ -34,18 +36,27 @@ export function AboutMe() {
               </a>
               .
             </p>
-            <div className="flex items-center pt-2 space-x-2">
+            <a
+              href="https://www.facebook.com/grldjr/"
+              className="flex items-center pt-2 space-x-2"
+            >
               <Facebook className="size-4 opacity-70" />
               <p className="text-xs font-semibold">Rald Helbiro</p>
-            </div>
-            <div className="flex items-center pt-2 space-x-2">
+            </a>
+            <a
+              href="https://github.com/potakaaa"
+              className="flex items-center pt-2 space-x-2"
+            >
               <Github className="size-4 opacity-70" />
               <p className="text-xs font-semibold">potakaaa</p>
-            </div>
-            <div className="flex items-center pt-2 space-x-2">
+            </a>
+            <a
+              href="https://www.instagram.com/jr.raldyyy/"
+              className="flex items-center pt-2 space-x-2"
+            >
               <Instagram className="size-4 opacity-70" />
               <p className="text-xs font-semibold">jr.raldyyy</p>
-            </div>
+            </a>
           </div>
         </div>
       </HoverCardContent>

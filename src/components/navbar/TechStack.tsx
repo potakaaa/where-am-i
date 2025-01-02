@@ -12,7 +12,9 @@ export function TechStack() {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Button variant="link">@nextjs</Button>
+        <Button variant="link" className="text-xs">
+          Tech Stack
+        </Button>
       </HoverCardTrigger>
       <HoverCardContent className="w-80">
         <div className="flex justify-between space-x-4">

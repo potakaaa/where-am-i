@@ -7,14 +7,22 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export function HowToUse() {
   return (
-    <HoverCard>
-      <HoverCardTrigger asChild>
-        <Button variant="link">@nextjs</Button>
-      </HoverCardTrigger>
-      <HoverCardContent className="w-80">
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="link" className="text-xs">
+          How to Use
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-80">
         <div className="flex justify-between space-x-4">
           <Avatar>
             <AvatarImage src="https://github.com/vercel.png" />
@@ -33,7 +41,7 @@ export function HowToUse() {
             </div>
           </div>
         </div>
-      </HoverCardContent>
-    </HoverCard>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
