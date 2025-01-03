@@ -1,5 +1,6 @@
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/provider/theme-provider";
 import Navbar from "./components/navbar/Navbar";
+import Map from "./components/Map";
 
 const App = () => {
   return (
@@ -8,6 +9,7 @@ const App = () => {
         <div className="fixed top-5 flex justify-center w-full">
           <Navbar />
         </div>
+        <Map />
         App
       </div>
     </ThemeProvider>
