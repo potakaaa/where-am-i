@@ -11,7 +11,7 @@ const Map = () => {
   const [zoomLevel, setZoomLevel] = useState(15);
 
   return (
-    <div className="w-72 rounded-md overflow-hidden">
+    <div className="w-72 rounded-md shadow-lg overflow-hidden">
       <MapContainer
         center={center}
         zoom={zoomLevel}
