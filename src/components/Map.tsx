@@ -4,11 +4,11 @@ import OSM from "./provider/osm-provider";
 import "leaflet/dist/leaflet.css";
 
 const Map = () => {
-  const [center, setCenter] = useState({
+  const [center] = useState({
     lat: 8.484850986252226,
     lng: 124.65665999809528,
   });
-  const [zoomLevel, setZoomLevel] = useState(15);
+  const [zoomLevel] = useState(15);
 
   return (
     <div className="w-72 rounded-md shadow-lg overflow-hidden">
