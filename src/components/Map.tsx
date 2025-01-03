@@ -8,10 +8,10 @@ const Map = () => {
     lat: 8.484850986252226,
     lng: 124.65665999809528,
   });
-  const [zoomLevel, setZoomLevel] = useState(13);
+  const [zoomLevel, setZoomLevel] = useState(15);
 
   return (
-    <div className="w-72">
+    <div className="w-72 rounded-md overflow-hidden">
       <MapContainer
         center={center}
         zoom={zoomLevel}

@@ -9,7 +9,9 @@ const App = () => {
         <div className="fixed top-5 flex justify-center w-full">
           <Navbar />
         </div>
-        <Map />
+        <div className="flex justify-center items-center ">
+          <Map />
+        </div>
         App
       </div>
     </ThemeProvider>
