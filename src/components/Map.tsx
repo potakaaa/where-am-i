@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import OSM from "./provider/osm-provider";
 import "leaflet/dist/leaflet.css";
 import { usePosition } from "./provider/global-provider";
-import { LatLng } from "leaflet";
+import { LocationMarker } from "./functions/LocationFinder";
 
 const Map = () => {
   const [zoomLevel] = useState(15);
@@ -25,11 +25,7 @@ const Map = () => {
           tileSize={256}
           detectRetina={true}
         />
-        <Marker position={pos}>
-          <Popup className="font-bold text-center justify-center items-center">
-            This is where I am studying - USTP.
-          </Popup>
-        </Marker>
+        <LocationMarker />
       </MapContainer>
     </div>
   );

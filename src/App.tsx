@@ -3,9 +3,11 @@ import Navbar from "./components/navbar/Navbar";
 import Map from "./components/Map";
 import { Button } from "@/components/ui/button";
 import { usePosition } from "./components/provider/global-provider";
-import { LatLng } from "leaflet";
 import { useEffect } from "react";
-import LocationFinder from "./components/functions/LocationFinder";
+import {
+  LocationClick,
+  LocationFinder,
+} from "./components/functions/LocationFinder";
 
 const App = () => {
   const { pos, setPos } = usePosition();
@@ -23,7 +25,13 @@ const App = () => {
         <div className="flex justify-center items-center w-screen p-7 ">
           <Map />
         </div>
-        <Button className="font-semibold" onClick={() => LocationFinder()}>
+        <Button
+          className="font-semibold"
+          onClick={() => {
+            const { setPos, setPosChanged } = usePosition();
+            setPos(LocationFinder());
+          }}
+        >
           Where Am I?
         </Button>
       </div>
