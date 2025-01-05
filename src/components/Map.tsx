@@ -11,14 +11,14 @@ const Map = () => {
   const [zoomLevel] = useState(15);
 
   return (
-    <div className="w-72 rounded-md shadow-lg overflow-hidden">
+    <div className="w-full rounded-md shadow-lg overflow-hidden">
       <MapContainer
         center={center}
         zoom={zoomLevel}
         style={{ height: "40vh" }}
         className="leaflet-container"
-        zoomSnap={1}
-        zoomDelta={1}
+        // zoomSnap={1}
+        // zoomDelta={1}
       >
         <TileLayer
           url={OSM.maptiler.url}

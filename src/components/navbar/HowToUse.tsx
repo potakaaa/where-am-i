@@ -5,6 +5,7 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export function HowToUse() {
   return (
@@ -21,7 +22,9 @@ export function HowToUse() {
         <div className="flex justify-between space-x-4">
           <Avatar className="size-8">
             <AvatarImage src="public\logo.svg" />
-            <AvatarFallback>VC</AvatarFallback>
+            <AvatarFallback>
+              <Skeleton className="size-8" />
+            </AvatarFallback>
           </Avatar>
           <div className="space-y-1">
             <p className="text-sm">
