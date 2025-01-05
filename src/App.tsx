@@ -2,8 +2,18 @@ import { ThemeProvider } from "@/components/provider/theme-provider";
 import Navbar from "./components/navbar/Navbar";
 import Map from "./components/Map";
 import { Button } from "@/components/ui/button";
+import { usePosition } from "./components/provider/global-provider";
+import { LatLng } from "leaflet";
+import { useEffect } from "react";
+import LocationFinder from "./components/functions/LocationFinder";
 
 const App = () => {
+  const { pos, setPos } = usePosition();
+
+  useEffect(() => {
+    console.log(pos);
+  }, [pos]);
+
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
       <div className="size-full items-center justify-center flex flex-col">
@@ -13,7 +23,9 @@ const App = () => {
         <div className="flex justify-center items-center w-screen p-7 ">
           <Map />
         </div>
-        <Button className="font-semibold">Where Am I?</Button>
+        <Button className="font-semibold" onClick={() => LocationFinder()}>
+          Where Am I?
+        </Button>
       </div>
     </ThemeProvider>
   );

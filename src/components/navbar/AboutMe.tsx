@@ -16,8 +16,8 @@ export function AboutMe() {
           About Me
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-72 m-2 p-4">
-        <div className="flex justify-between space-x-4">
+      <DropdownMenuContent className="w-72 m-2 p-4 ">
+        <div className="flex justify-between space-x-4 z-40">
           <Avatar className="size-12 shadow">
             <AvatarImage src="https://avatars.githubusercontent.com/u/111859181?v=4" />
             <AvatarFallback>VC</AvatarFallback>

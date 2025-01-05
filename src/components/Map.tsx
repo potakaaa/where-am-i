@@ -1,21 +1,20 @@
 import { useState } from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import OSM from "./provider/osm-provider";
 import "leaflet/dist/leaflet.css";
+import { usePosition } from "./provider/global-provider";
+import { LatLng } from "leaflet";
 
 const Map = () => {
-  const [center] = useState({
-    lat: 8.484850986252226,
-    lng: 124.65665999809528,
-  });
   const [zoomLevel] = useState(15);
+  const { pos, setPos } = usePosition();
 
   return (
     <div className="w-full rounded-md shadow-lg overflow-hidden">
       <MapContainer
-        center={center}
+        center={pos}
         zoom={zoomLevel}
-        style={{ height: "40vh" }}
+        style={{ height: "50vh", zIndex: 0 }}
         className="leaflet-container"
         // zoomSnap={1}
         // zoomDelta={1}
@@ -26,6 +25,11 @@ const Map = () => {
           tileSize={256}
           detectRetina={true}
         />
+        <Marker position={pos}>
+          <Popup className="font-bold text-center justify-center items-center">
+            This is where I am studying - USTP.
+          </Popup>
+        </Marker>
       </MapContainer>
     </div>
   );
