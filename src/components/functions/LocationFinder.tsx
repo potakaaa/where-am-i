@@ -17,6 +17,7 @@ export function LocationMarker() {
 
 export function LocationFinder() {
   const [tempPos, setTempPos] = useState({ lat: 0, lng: 0 });
+  const { setPosChanged } = usePosition();
 
   const map = useMapEvents({
     click() {
@@ -25,10 +26,15 @@ export function LocationFinder() {
     locationfound(e) {
       setTempPos(e.latlng);
       map.flyTo(e.latlng, map.getZoom());
+      setPosChanged(true);
     },
   });
 
   return tempPos;
 }
 
-export function LocationClick() {}
+export function LocationClick() {
+  const { setPos } = usePosition();
+
+  setPos(LocationFinder());
+}

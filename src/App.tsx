@@ -8,9 +8,10 @@ import {
   LocationClick,
   LocationFinder,
 } from "./components/functions/LocationFinder";
+import { useMap, useMapEvents } from "react-leaflet";
 
 const App = () => {
-  const { pos, setPos } = usePosition();
+  const { pos, setPos, setPosChanged } = usePosition();
 
   useEffect(() => {
     console.log(pos);
@@ -25,15 +26,7 @@ const App = () => {
         <div className="flex justify-center items-center w-screen p-7 ">
           <Map />
         </div>
-        <Button
-          className="font-semibold"
-          onClick={() => {
-            const { setPos, setPosChanged } = usePosition();
-            setPos(LocationFinder());
-          }}
-        >
-          Where Am I?
-        </Button>
+        <Button className="font-semibold shadow-sm">Where Am I?</Button>
       </div>
     </ThemeProvider>
   );

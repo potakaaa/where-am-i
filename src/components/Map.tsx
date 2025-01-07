@@ -1,16 +1,25 @@
 import { useState } from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import OSM from "./provider/osm-provider";
 import "leaflet/dist/leaflet.css";
 import { usePosition } from "./provider/global-provider";
 import { LocationMarker } from "./functions/LocationFinder";
+import { useTheme } from "./provider/theme-provider";
 
 const Map = () => {
   const [zoomLevel] = useState(15);
-  const { pos, setPos } = usePosition();
+  const { pos, setPos, posChanged } = usePosition();
+  const { theme } = useTheme();
+  console.log(theme);
 
   return (
-    <div className="w-full rounded-md shadow-lg overflow-hidden">
+    <div
+      className={`w-full rounded-md ${
+        theme === "light"
+          ? "shadow-[0px_3px_35px_-6px_rgba(0,_0,_0,_0.35)]"
+          : "shadow-[0px_3px_35px_-11px_#ffffff]"
+      } overflow-hidden`}
+    >
       <MapContainer
         center={pos}
         zoom={zoomLevel}
@@ -25,7 +34,13 @@ const Map = () => {
           tileSize={256}
           detectRetina={true}
         />
-        <LocationMarker />
+        <Marker position={pos}>
+          <Popup className="font-bold text-center justify-center items-center font-sans">
+            {!posChanged
+              ? "This is where I am studying - USTP."
+              : "You're currently here."}
+          </Popup>
+        </Marker>
       </MapContainer>
     </div>
   );
