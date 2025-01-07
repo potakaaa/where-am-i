@@ -1,9 +1,17 @@
 import { useState } from "react";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import {
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+  useMap,
+  useMapEvents,
+} from "react-leaflet";
 import OSM from "./provider/osm-provider";
 import "leaflet/dist/leaflet.css";
 import { usePosition } from "./provider/global-provider";
 import { useTheme } from "./provider/theme-provider";
+import { Button } from "./ui/button";
 
 const Map = () => {
   const [zoomLevel] = useState(15);
