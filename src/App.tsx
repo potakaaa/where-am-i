@@ -3,11 +3,7 @@ import Navbar from "./components/navbar/Navbar";
 import Map from "./components/Map";
 import { Button } from "@/components/ui/button";
 import { usePosition } from "./components/provider/global-provider";
-import { useEffect } from "react";
-import {
-  LocationClick,
-  LocationFinder,
-} from "./components/functions/LocationFinder";
+import { useEffect, useState } from "react";
 import { useMap, useMapEvents } from "react-leaflet";
 
 const App = () => {

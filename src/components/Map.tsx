@@ -3,7 +3,6 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import OSM from "./provider/osm-provider";
 import "leaflet/dist/leaflet.css";
 import { usePosition } from "./provider/global-provider";
-import { LocationMarker } from "./functions/LocationFinder";
 import { useTheme } from "./provider/theme-provider";
 
 const Map = () => {
@@ -35,7 +34,7 @@ const Map = () => {
           detectRetina={true}
         />
         <Marker position={pos}>
-          <Popup className="font-bold text-center justify-center items-center font-sans">
+          <Popup className="font-bold text-center justify-center items-center">
             {!posChanged
               ? "This is where I am studying - USTP."
               : "You're currently here."}
