@@ -3,11 +3,10 @@ import Navbar from "./components/navbar/Navbar";
 import Map from "./components/Map";
 import { Button } from "@/components/ui/button";
 import { usePosition } from "./components/provider/global-provider";
-import { useEffect, useState } from "react";
-import { useMap, useMapEvents } from "react-leaflet";
+import { useEffect } from "react";
 
 const App = () => {
-  const { pos, setPos, setPosChanged } = usePosition();
+  const { pos } = usePosition();
 
   useEffect(() => {
     console.log(pos);

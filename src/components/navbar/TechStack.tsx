@@ -13,6 +13,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 export function TechStack() {
   const [loadIcons, setLoadIcons] = useState(0);
   const [isLoaded, setIsLoaded] = useState(true);
+  console.log(isLoaded);
 
   useEffect(() => {
     if (loadIcons === 4) {

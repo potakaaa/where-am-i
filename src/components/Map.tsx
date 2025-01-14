@@ -4,20 +4,36 @@ import {
   Marker,
   Popup,
   TileLayer,
-  useMap,
   useMapEvents,
 } from "react-leaflet";
 import OSM from "./provider/osm-provider";
 import "leaflet/dist/leaflet.css";
 import { usePosition } from "./provider/global-provider";
 import { useTheme } from "./provider/theme-provider";
-import { Button } from "./ui/button";
+import { LatLng } from "leaflet";
 
 const Map = () => {
   const [zoomLevel] = useState(15);
-  const { pos, setPos, posChanged } = usePosition();
+  const { pos, posChanged } = usePosition();
+  const [userPos, setUserPos] = useState<LatLng | undefined>();
   const { theme } = useTheme();
   console.log(theme);
+
+  const map = useMapEvents({
+    locationfound(e) {
+      map.flyTo(e.latlng);
+      setUserPos(e.latlng);
+    },
+  });
+
+  const locateUser = () => {
+    map.locate();
+    if (!map) {
+      return;
+    } else {
+      return <Marker position={userPos}></Marker>;
+    }
+  };
 
   return (
     <div
