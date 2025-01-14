@@ -12,7 +12,10 @@ export function AboutMe() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="link" className="text-xs sm:text-sm">
+        <Button
+          variant="link"
+          className="text-xs sm:text-sm transition-all duration-300"
+        >
           About Me
         </Button>
       </DropdownMenuTrigger>
