@@ -49,7 +49,7 @@ export function TechStack() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="link" className="text-xs">
+        <Button variant="link" className="text-xs sm:text-sm">
           Tech Stack
         </Button>
       </DropdownMenuTrigger>

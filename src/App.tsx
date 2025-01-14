@@ -1,12 +1,19 @@
 import { ThemeProvider } from "@/components/provider/theme-provider";
 import Navbar from "./components/navbar/Navbar";
-import Map from "./components/Map";
+import Map, { MapRef } from "./components/Map";
 import { Button } from "@/components/ui/button";
 import { usePosition } from "./components/provider/global-provider";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const App = () => {
   const { pos } = usePosition();
+
+  const mapRef = useRef<MapRef>(null);
+
+  const handleLocateUser = () => {
+    mapRef.current?.locateUser();
+    console.log("Locating user...");
+  };
 
   useEffect(() => {
     console.log(pos);
@@ -19,9 +26,11 @@ const App = () => {
           <Navbar />
         </div>
         <div className="flex justify-center items-center w-screen p-7 ">
-          <Map />
+          <Map ref={mapRef} />
         </div>
-        <Button className="font-semibold shadow-sm">Where Am I?</Button>
+        <Button className="font-semibold shadow-sm" onClick={handleLocateUser}>
+          Where Am I?
+        </Button>
       </div>
     </ThemeProvider>
   );

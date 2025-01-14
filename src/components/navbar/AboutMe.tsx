@@ -12,7 +12,7 @@ export function AboutMe() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="link" className="text-xs">
+        <Button variant="link" className="text-xs sm:text-sm">
           About Me
         </Button>
       </DropdownMenuTrigger>

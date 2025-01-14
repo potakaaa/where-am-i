@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import {
   MapContainer,
   Marker,
@@ -6,33 +6,39 @@ import {
   TileLayer,
   useMapEvents,
 } from "react-leaflet";
-import OSM from "./provider/osm-provider";
+import OSM, { redIcon } from "./provider/osm-provider";
 import "leaflet/dist/leaflet.css";
 import { usePosition } from "./provider/global-provider";
 import { useTheme } from "./provider/theme-provider";
 import { LatLng } from "leaflet";
 
-const Map = () => {
+export interface MapRef {
+  locateUser: () => void;
+}
+
+const Map = forwardRef<MapRef>((props, ref) => {
   const [zoomLevel] = useState(15);
   const { pos, posChanged } = usePosition();
-  const [userPos, setUserPos] = useState<LatLng | undefined>();
+  const { userPos, setUserPos } = usePosition();
   const { theme } = useTheme();
   console.log(theme);
 
-  const map = useMapEvents({
-    locationfound(e) {
-      map.flyTo(e.latlng);
-      setUserPos(e.latlng);
-    },
-  });
+  const HandleMapEvents = () => {
+    const map = useMapEvents({
+      locationfound(e) {
+        map.flyTo(e.latlng);
+        setUserPos(e.latlng);
+      },
+    });
 
-  const locateUser = () => {
-    map.locate();
-    if (!map) {
-      return;
-    } else {
-      return <Marker position={userPos}></Marker>;
-    }
+    // Expose the locate function via ref
+    useImperativeHandle(ref, () => ({
+      locateUser: () => {
+        map.locate();
+      },
+    }));
+
+    return null;
   };
 
   return (
@@ -64,9 +70,17 @@ const Map = () => {
               : "You're currently here."}
           </Popup>
         </Marker>
+        {userPos && (
+          <Marker position={userPos} icon={redIcon}>
+            <Popup className="font-bold text-center justify-center items-center">
+              You're currently here.
+            </Popup>
+          </Marker>
+        )}
+        <HandleMapEvents />
       </MapContainer>
     </div>
   );
-};
+});
 
 export default Map;

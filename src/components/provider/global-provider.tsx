@@ -13,6 +13,8 @@ interface PositionContextType {
   setPos: React.Dispatch<React.SetStateAction<Position>>;
   posChanged: boolean;
   setPosChanged: React.Dispatch<React.SetStateAction<boolean>>;
+  userPos: Position | null;
+  setUserPos: React.Dispatch<React.SetStateAction<Position | null>>;
 }
 
 // Create the context with a default value
@@ -34,10 +36,11 @@ export const PositionProvider: React.FC<PositionProviderProps> = ({
     lng: 124.65748458467397,
   });
   const [posChanged, setPosChanged] = useState<boolean>(false);
+  const [userPos, setUserPos] = useState<Position | null>(null);
 
   return (
     <PositionContext.Provider
-      value={{ pos, setPos, posChanged, setPosChanged }}
+      value={{ pos, setPos, posChanged, setPosChanged, userPos, setUserPos }}
     >
       {children}
     </PositionContext.Provider>

@@ -13,7 +13,7 @@ export function HowToUse() {
       <DropdownMenuTrigger asChild>
         <Button
           variant="link"
-          className="text-xs underline-offset-4 hover:underline active:underline"
+          className="text-xs underline-offset-4 hover:underline active:underline sm:text-sm"
         >
           How to Use
         </Button>
