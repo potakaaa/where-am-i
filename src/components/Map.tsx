@@ -43,7 +43,7 @@ const Map = forwardRef<MapRef>((props, ref) => {
 
   return (
     <div
-      className={`w-full rounded-md ${
+      className={`w-full max-w-5xl rounded-md ${
         theme === "light"
           ? "shadow-[0px_3px_35px_-6px_rgba(0,_0,_0,_0.35)]"
           : "shadow-[0px_3px_35px_-11px_#ffffff]"
