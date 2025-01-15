@@ -28,7 +28,10 @@ const App = () => {
         <div className="flex justify-center items-center w-screen p-7 ">
           <Map ref={mapRef} />
         </div>
-        <Button className="font-semibold shadow-sm" onClick={handleLocateUser}>
+        <Button
+          className="font-semibold shadow-sm mt-0 lg:mt-5 transition-all duration-300 xl:p-6 xl:text-sm"
+          onClick={handleLocateUser}
+        >
           Where Am I?
         </Button>
       </div>

@@ -10,13 +10,12 @@ import OSM, { redIcon } from "./provider/osm-provider";
 import "leaflet/dist/leaflet.css";
 import { usePosition } from "./provider/global-provider";
 import { useTheme } from "./provider/theme-provider";
-import { LatLng } from "leaflet";
 
 export interface MapRef {
   locateUser: () => void;
 }
 
-const Map = forwardRef<MapRef>((props, ref) => {
+const Map = forwardRef<MapRef>((_, ref) => {
   const [zoomLevel] = useState(15);
   const { pos, posChanged } = usePosition();
   const { userPos, setUserPos } = usePosition();
@@ -43,7 +42,7 @@ const Map = forwardRef<MapRef>((props, ref) => {
 
   return (
     <div
-      className={`w-full max-w-5xl rounded-md ${
+      className={`w-full max-w-4xl rounded-md ${
         theme === "light"
           ? "shadow-[0px_3px_35px_-6px_rgba(0,_0,_0,_0.35)]"
           : "shadow-[0px_3px_35px_-11px_#ffffff]"

@@ -51,38 +51,38 @@ export function TechStack() {
       <DropdownMenuTrigger asChild>
         <Button
           variant="link"
-          className="text-xs transition-all duration-300 sm:text-sm "
+          className="text-xs transition-all duration-300 sm:text-sm lg:text-base"
         >
           Tech Stack
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-60 m-2 p-4">
+      <DropdownMenuContent className="w-60 m-2 p-4 lg:w-64">
         <div className="flex flex-col">
-          <div className="flex self-stretch justify-evenly">
+          <div className="flex self-stretch justify-evenly gap-0 lg:gap-2">
             <a href="https://react.dev/">
-              <Avatar className="size-8">
+              <Avatar className="size-8 lg:size-10">
                 <AvatarImage
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
                   onLoad={() => setLoadIcons(loadIcons + 1)}
                 />
                 <AvatarFallback>
-                  <Skeleton className="size-8" />
+                  <Skeleton className="size-8 lg:size-10" />
                 </AvatarFallback>
               </Avatar>
             </a>
             <a href="https://vite.dev/">
-              <Avatar className="size-8">
+              <Avatar className="size-8 lg:size-10">
                 <AvatarImage
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg"
                   onLoad={() => setLoadIcons(loadIcons + 1)}
                 />
                 <AvatarFallback>
-                  <Skeleton className="size-8" />
+                  <Skeleton className="size-8 lg:size-10" />
                 </AvatarFallback>
               </Avatar>
             </a>
             <a href="https://www.typescriptlang.org/">
-              <Avatar className="size-8">
+              <Avatar className="size-8 lg:size-10">
                 <AvatarImage
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
                   onLoad={() => setLoadIcons(loadIcons + 1)}
@@ -93,7 +93,7 @@ export function TechStack() {
               </Avatar>
             </a>
             <a href="https://tailwindcss.com/">
-              <Avatar className="size-8">
+              <Avatar className="size-8 lg:size-10">
                 <AvatarImage
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
                   onLoad={() => setLoadIcons(loadIcons + 1)}
