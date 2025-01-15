@@ -5,7 +5,7 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const Navbar = () => {
   return (
-    <div className="flex w-full justify-evenly">
+    <div className="flex w-full justify-evenly mt-0 lg:mt-3 transition-all duration-300">
       <HowToUse />
       <TechStack />
       <AboutMe />
