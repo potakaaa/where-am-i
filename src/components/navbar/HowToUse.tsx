@@ -21,7 +21,7 @@ export function HowToUse() {
       <DropdownMenuContent className="w-72 p-4 m-2 lg:w-80">
         <div className="flex justify-between space-x-4">
           <Avatar className="size-8 lg:size-10">
-            <AvatarImage src="public\logo.svg" />
+            <AvatarImage src="logo.svg" />
             <AvatarFallback>
               <Skeleton className="size-8 lg:size-10" />
             </AvatarFallback>

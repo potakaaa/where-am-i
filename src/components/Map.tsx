@@ -6,7 +6,7 @@ import {
   TileLayer,
   useMapEvents,
 } from "react-leaflet";
-import OSM, { redIcon } from "./provider/osm-provider";
+import OSM, { defaultMarker, redIcon } from "./provider/osm-provider";
 import "leaflet/dist/leaflet.css";
 import { usePosition } from "./provider/global-provider";
 import { useTheme } from "./provider/theme-provider";
@@ -62,11 +62,9 @@ const Map = forwardRef<MapRef>((_, ref) => {
           tileSize={256}
           detectRetina={true}
         />
-        <Marker position={pos}>
+        <Marker position={pos} icon={defaultMarker}>
           <Popup className="font-bold text-center justify-center items-center">
-            {!posChanged
-              ? "This is where I am studying - USTP."
-              : "You're currently here."}
+            This is where I am studying - USTP.
           </Popup>
         </Marker>
         {userPos && (
