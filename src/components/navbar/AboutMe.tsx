@@ -20,7 +20,7 @@ export function AboutMe() {
           About Me
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-72 m-2 p-4 ">
+      <DropdownMenuContent className="w-72 m-2 p-4 lg:w-80 lg:p-6 transition-all duration-300">
         <div className="flex justify-between space-x-4 z-40">
           <Avatar className="size-12 lg:size-14 shadow">
             <AvatarImage src="https://avatars.githubusercontent.com/u/111859181?v=4" />
