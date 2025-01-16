@@ -1,5 +1,6 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
 import {
+  LayersControl,
   MapContainer,
   Marker,
   Popup,
@@ -17,7 +18,7 @@ export interface MapRef {
 
 const Map = forwardRef<MapRef>((_, ref) => {
   const [zoomLevel] = useState(15);
-  const { pos, posChanged } = usePosition();
+  const { pos } = usePosition();
   const { userPos, setUserPos } = usePosition();
   const { theme } = useTheme();
   console.log(theme);
@@ -27,6 +28,7 @@ const Map = forwardRef<MapRef>((_, ref) => {
       locationfound(e) {
         map.flyTo(e.latlng);
         setUserPos(e.latlng);
+        console.log(e.latlng);
       },
     });
 
@@ -75,6 +77,24 @@ const Map = forwardRef<MapRef>((_, ref) => {
           </Marker>
         )}
         <HandleMapEvents />
+        <LayersControl position="topright">
+          <LayersControl.BaseLayer name="Map">
+            <TileLayer
+              url={OSM.maptiler.url}
+              attribution={OSM.maptiler.attribution}
+              tileSize={256}
+              detectRetina={true}
+            />
+          </LayersControl.BaseLayer>
+          <LayersControl.BaseLayer name="Satellite">
+            <TileLayer
+              url={OSM.maptiler_satellite.url}
+              attribution={OSM.maptiler_satellite.attribution}
+              tileSize={256}
+              detectRetina={true}
+            />
+          </LayersControl.BaseLayer>
+        </LayersControl>
       </MapContainer>
     </div>
   );

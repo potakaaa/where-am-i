@@ -9,6 +9,11 @@ const OSM = {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   },
+  maptiler_satellite: {
+    url: "https://api.maptiler.com/maps/satellite/{z}/{x}/{y}.jpg?key=SlZNxUiHmBSoWZ1YUoLb",
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.maptiler.com/">MapTiler</a>',
+  }
 };
 
 export const redIcon = new L.Icon({
