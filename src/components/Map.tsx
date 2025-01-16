@@ -18,6 +18,7 @@ export interface MapRef {
 
 const Map = forwardRef<MapRef>((_, ref) => {
   const [zoomLevel] = useState(15);
+  const [layer, setLayer] = useState(OSM.maptiler.url);
   const { pos } = usePosition();
   const { userPos, setUserPos } = usePosition();
   const { theme } = useTheme();
@@ -42,6 +43,21 @@ const Map = forwardRef<MapRef>((_, ref) => {
     return null;
   };
 
+  const HandleSetLayerDef = () => {
+    setLayer(OSM.maptiler.url);
+    return null;
+  };
+
+  const HandleSetLayerSat = () => {
+    setLayer(OSM.maptiler_satellite.url);
+    return null;
+  };
+
+  const HandleSetLayerLan = () => {
+    setLayer(OSM.maptiler_landscape.url);
+    return null;
+  };
+
   return (
     <div
       className={`w-full max-w-4xl rounded-md ${
@@ -60,7 +76,7 @@ const Map = forwardRef<MapRef>((_, ref) => {
       >
         <TileLayer
           url={OSM.maptiler.url}
-          attribution={OSM.maptiler.attribution}
+          attribution={layer}
           tileSize={256}
           detectRetina={true}
         />
@@ -85,6 +101,7 @@ const Map = forwardRef<MapRef>((_, ref) => {
               tileSize={256}
               detectRetina={true}
             />
+            <HandleSetLayerDef />
           </LayersControl.BaseLayer>
           <LayersControl.BaseLayer name="Satellite">
             <TileLayer
@@ -93,6 +110,16 @@ const Map = forwardRef<MapRef>((_, ref) => {
               tileSize={256}
               detectRetina={true}
             />
+            <HandleSetLayerSat />
+          </LayersControl.BaseLayer>
+          <LayersControl.BaseLayer name="Landscape">
+            <TileLayer
+              url={OSM.maptiler_landscape.url}
+              attribution={OSM.maptiler_landscape.attribution}
+              tileSize={256}
+              detectRetina={true}
+            />
+            <HandleSetLayerLan />
           </LayersControl.BaseLayer>
         </LayersControl>
       </MapContainer>

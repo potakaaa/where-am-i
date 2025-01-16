@@ -13,7 +13,12 @@ const OSM = {
     url: "https://api.maptiler.com/maps/satellite/{z}/{x}/{y}.jpg?key=SlZNxUiHmBSoWZ1YUoLb",
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.maptiler.com/">MapTiler</a>',
-  }
+  },
+  maptiler_landscape: {
+    url: "https://api.maptiler.com/maps/landscape/{z}/{x}/{y}.png?key=SlZNxUiHmBSoWZ1YUoLb",
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.maptiler.com/">MapTiler</a>',
+  },
 };
 
 export const redIcon = new L.Icon({
